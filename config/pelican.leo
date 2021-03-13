@@ -54,9 +54,9 @@
 </v>
 <v t="leo.20170710022054.1"><vh>可以另建節點存放 markdown 目錄下的 md 檔案</vh></v>
 <v t="leo.20170710022041.1"><vh>@path markdown</vh>
-<v t="leo.20180115115910.1"><vh>2020</vh>
-<v t="leo.20180423103639.1"><vh>2020 Fall CP 課程</vh>
-<v t="leo.20180423103656.1"><vh>@clean 20210813.md</vh></v>
+<v t="leo.20180115115910.1"><vh>2021</vh>
+<v t="leo.20180423103639.1"><vh>2021 Spring CD 課程</vh>
+<v t="leo.20180423103656.1"><vh>@clean 20210313.md</vh></v>
 </v>
 </v>
 </v>
@@ -90,12 +90,12 @@ g.es("admin pelican Github 執行完畢")
 <t tx="leo.20180423103639.1"></t>
 <t tx="leo.20180423103656.1">@language md
 ---
-Title: 2020 Fall CP 課程
-Date: 2020-08-13 11:00
+Title: 2021 Spring CD 課程
+Date: 2021-03-13 11:00
 Category: Misc
-Tags: 2020FallCP
-Slug: 2020-Fall-Intro-to-computer-programming-1
-Author: yen
+Tags: 2021SpringCD
+Slug: 2021-Spring-Intro-to-computer-programming-1
+Author: 40823247
 ---
 
 2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.
