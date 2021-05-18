@@ -134,6 +134,119 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">W11 << <a href='W11.html'>Previous</a> <a href='Team.html'>Next</a> >> Team<br /><h1>W12</h1>
+<p>5/17組員完成了程式模擬</p>
+<p>此為檔案載點:</p>
+<p><a href="https://drive.google.com/file/d/1FErGMzyfP5MTvf8cLc1Ox2xHJhuDN1XH/view?usp=sharing">https://drive.google.com/file/d/1FErGMzyfP5MTvf8cLc1Ox2xHJhuDN1XH/view?usp=sharing</a></p>
+<p>-5/18開始測試程式，可以順利執行-</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/POfUTjlmJkA" title="YouTube video player" width="560"></iframe></p>
+<p>解壓縮檔案後，將此api.py丟到白窗測試程式</p>
+<p><img alt="" height="153" src="./../images/explorer_oZMlnRsByf.png" width="500"/></p>
+<p>若要操控自己電腦的coppeliasim裡的機構，將ip位址改為127.0.0.1，點選go即可執行。</p>
+<p><img alt="" height="450" src="./../images/ZoomIt64_NDL5YN6iqB.png" width="500"/></p>
+<p><span style="color: #000000;">------------(我是分隔線)--------------</span></p>
+<p><span style="color: #000000;">按鍵A為主軸順時針旋轉</span></p>
+<p><span style="color: #000000;">按鍵B為主軸逆時針旋轉</span></p>
+<p><span style="color: #000000;">按鍵W為大臂向上</span></p>
+<p><span style="color: #000000;">按鍵S為大臂向下</span></p>
+<p><span style="color: #000000;">按鍵E為小臂向上</span></p>
+<p><span style="color: #000000;">按鍵D為小臂向下</span></p>
+<p><span style="color: #000000;">按鍵R為小臂旋轉</span></p>
+<p><span style="color: #000000;">按鍵J為手肘向上</span></p>
+<p><span style="color: #000000;">按鍵K為手肘向下</span></p>
+<p><span style="color: #000000;">------------(我是分隔線)---------------</span></p>
+<p><span style="color: #000000;">此為程式碼:</span></p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_29573">
+<div class="line number1 index0 alt2"><code class="py comments"># File created by Thibaut Royer, Epitech school</code></div>
+<div class="line number2 index1 alt1"><code class="py comments"># thibaut1.royer@epitech.eu</code></div>
+<div class="line number3 index2 alt2"><code class="py comments"># It intends to be an example program for the "Two wheels, one arm" educative project.</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code> </div>
+<div class="line number5 index4 alt2"><code class="py keyword">import</code> <code class="py plain">sim as vrep</code></div>
+<div class="line number6 index5 alt1"><code class="py keyword">import</code> <code class="py plain">math</code></div>
+<div class="line number7 index6 alt2"><code class="py keyword">import</code> <code class="py plain">random</code></div>
+<div class="line number8 index7 alt1"><code class="py keyword">import</code> <code class="py plain">time</code></div>
+<div class="line number9 index8 alt2"><code class="py keyword">import</code> <code class="py plain">keyboard</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code> </div>
+<div class="line number11 index10 alt2"><code class="py functions">print</code> <code class="py plain">(</code><code class="py string">'Start'</code><code class="py plain">)</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code> </div>
+<div class="line number13 index12 alt2"><code class="py comments"># Close eventual old connections</code></div>
+<div class="line number14 index13 alt1"><code class="py plain">vrep.simxFinish(</code><code class="py keyword">-</code><code class="py value">1</code><code class="py plain">)</code></div>
+<div class="line number15 index14 alt2"><code class="py comments"># Connect to V-REP remote server</code></div>
+<div class="line number16 index15 alt1"><code class="py plain">clientID </code><code class="py keyword">=</code> <code class="py plain">vrep.simxStart(</code><code class="py string">'192.168.0.4'</code><code class="py plain">, </code><code class="py value">19997</code><code class="py plain">, </code><code class="py color1">True</code><code class="py plain">, </code><code class="py color1">True</code><code class="py plain">, </code><code class="py value">5000</code><code class="py plain">, </code><code class="py value">5</code><code class="py plain">)</code></div>
+<div class="line number17 index16 alt2"><code class="py spaces"> </code> </div>
+<div class="line number18 index17 alt1"><code class="py keyword">if</code> <code class="py plain">clientID !</code><code class="py keyword">=</code> <code class="py keyword">-</code><code class="py value">1</code><code class="py plain">:</code></div>
+<div class="line number19 index18 alt2"><code class="py spaces">    </code><code class="py functions">print</code> <code class="py plain">(</code><code class="py string">'Connected to remote API server'</code><code class="py plain">)</code></div>
+<div class="line number20 index19 alt1"><code class="py spaces">     </code> </div>
+<div class="line number21 index20 alt2"><code class="py spaces">    </code><code class="py plain">res </code><code class="py keyword">=</code> <code class="py plain">vrep.simxAddStatusbarMessage(</code></div>
+<div class="line number22 index21 alt1"><code class="py spaces">        </code><code class="py plain">clientID, </code><code class="py string">"40823218"</code><code class="py plain">,</code></div>
+<div class="line number23 index22 alt2"><code class="py spaces">        </code><code class="py plain">vrep.simx_opmode_oneshot)</code></div>
+<div class="line number24 index23 alt1"><code class="py spaces">    </code><code class="py keyword">if</code> <code class="py plain">res </code><code class="py keyword">not</code> <code class="py keyword">in</code> <code class="py plain">(vrep.simx_return_ok, vrep.simx_return_novalue_flag):</code></div>
+<div class="line number25 index24 alt2"><code class="py spaces">        </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">"Could not add a message to the status bar."</code><code class="py plain">)</code></div>
+<div class="line number26 index25 alt1"><code class="py spaces"> </code> </div>
+<div class="line number27 index26 alt2"><code class="py spaces">    </code><code class="py comments"># Communication operating mode with the remote API : wait for its answer before continuing (blocking mode)</code></div>
+<div class="line number28 index27 alt1"><code class="py spaces">    </code><code class="py comments"># http://www.coppeliarobotics.com/helpFiles/en/remoteApiConstants.htm</code></div>
+<div class="line number29 index28 alt2"><code class="py spaces">    </code><code class="py plain">opmode </code><code class="py keyword">=</code> <code class="py plain">vrep.simx_opmode_oneshot_wait</code></div>
+<div class="line number30 index29 alt1"><code class="py spaces">    </code><code class="py plain">STREAMING </code><code class="py keyword">=</code> <code class="py plain">vrep.simx_opmode_streaming</code></div>
+<div class="line number31 index30 alt2"><code class="py spaces"> </code> </div>
+<div class="line number32 index31 alt1"><code class="py spaces">    </code><code class="py comments"># Try to retrieve motors and robot handlers</code></div>
+<div class="line number33 index32 alt2"><code class="py spaces">    </code><code class="py comments"># http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxGetObjectHandle</code></div>
+<div class="line number34 index33 alt1"><code class="py spaces">    </code><code class="py plain">vrep.simxStartSimulation(clientID, opmode)</code></div>
+<div class="line number35 index34 alt2"><code class="py spaces">    </code><code class="py plain">ret,base_handle</code><code class="py keyword">=</code><code class="py plain">vrep.simxGetObjectHandle(clientID,</code><code class="py string">"joint1"</code><code class="py plain">,opmode)</code></div>
+<div class="line number36 index35 alt1"><code class="py spaces">    </code><code class="py plain">ret,bottom_handle</code><code class="py keyword">=</code><code class="py plain">vrep.simxGetObjectHandle(clientID,</code><code class="py string">"joint2"</code><code class="py plain">,opmode)</code></div>
+<div class="line number37 index36 alt2"><code class="py spaces">    </code><code class="py plain">ret,top_handle</code><code class="py keyword">=</code><code class="py plain">vrep.simxGetObjectHandle(clientID,</code><code class="py string">"joint3"</code><code class="py plain">,opmode)</code></div>
+<div class="line number38 index37 alt1"><code class="py spaces">    </code><code class="py plain">ret,rotate_handle</code><code class="py keyword">=</code><code class="py plain">vrep.simxGetObjectHandle(clientID,</code><code class="py string">"joint4"</code><code class="py plain">,opmode)</code></div>
+<div class="line number39 index38 alt2"><code class="py spaces">    </code><code class="py plain">ret,wrist_handle</code><code class="py keyword">=</code><code class="py plain">vrep.simxGetObjectHandle(clientID,</code><code class="py string">"joint5"</code><code class="py plain">,opmode)</code></div>
+<div class="line number40 index39 alt1"><code class="py spaces">    </code><code class="py keyword">while</code> <code class="py color1">True</code><code class="py plain">:</code></div>
+<div class="line number41 index40 alt2"><code class="py spaces">        </code><code class="py comments">#Clockwise</code></div>
+<div class="line number42 index41 alt1"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed(</code><code class="py string">"a"</code><code class="py plain">):</code></div>
+<div class="line number43 index42 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,base_handle,</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number44 index43 alt1"><code class="py spaces">        </code><code class="py comments">#anti-Clockwise </code></div>
+<div class="line number45 index44 alt2"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed(</code><code class="py string">"f"</code><code class="py plain">):</code></div>
+<div class="line number46 index45 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,base_handle,</code><code class="py keyword">-</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number47 index46 alt2"><code class="py spaces">        </code><code class="py comments">#bottom_handle up</code></div>
+<div class="line number48 index47 alt1"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"w"</code><code class="py plain">):</code></div>
+<div class="line number49 index48 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,bottom_handle,</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number50 index49 alt1"><code class="py spaces">        </code><code class="py comments">#bottom_handle down</code></div>
+<div class="line number51 index50 alt2"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"s"</code><code class="py plain">):</code></div>
+<div class="line number52 index51 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,bottom_handle,</code><code class="py keyword">-</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number53 index52 alt2"><code class="py spaces">         </code><code class="py comments">#top_handle up</code></div>
+<div class="line number54 index53 alt1"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"e"</code><code class="py plain">):</code></div>
+<div class="line number55 index54 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,top_handle,</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number56 index55 alt1"><code class="py spaces">         </code><code class="py comments">#top_handle down</code></div>
+<div class="line number57 index56 alt2"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"d"</code><code class="py plain">):</code></div>
+<div class="line number58 index57 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,top_handle,</code><code class="py keyword">-</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number59 index58 alt2"><code class="py spaces">         </code><code class="py comments">#rotate</code></div>
+<div class="line number60 index59 alt1"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"r"</code><code class="py plain">):</code></div>
+<div class="line number61 index60 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,rotate_handle,</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number62 index61 alt1"><code class="py spaces">         </code><code class="py comments">#wrist_handle left</code></div>
+<div class="line number63 index62 alt2"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"j"</code><code class="py plain">):</code></div>
+<div class="line number64 index63 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,wrist_handle,</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number65 index64 alt2"><code class="py spaces">         </code><code class="py comments">#wrist_handle right</code></div>
+<div class="line number66 index65 alt1"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"k"</code><code class="py plain">):</code></div>
+<div class="line number67 index66 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,wrist_handle,</code><code class="py keyword">-</code><code class="py value">0.2</code><code class="py plain">,opmode)</code></div>
+<div class="line number68 index67 alt1"><code class="py spaces">         </code><code class="py comments">#stop</code></div>
+<div class="line number69 index68 alt2"><code class="py spaces">        </code><code class="py keyword">if</code> <code class="py plain">keyboard.is_pressed (</code><code class="py string">"space"</code><code class="py plain">):</code></div>
+<div class="line number70 index69 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,base_handle,</code><code class="py value">0</code><code class="py plain">,opmode)</code></div>
+<div class="line number71 index70 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,bottom_handle,</code><code class="py value">0</code><code class="py plain">,opmode)</code></div>
+<div class="line number72 index71 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,top_handle,</code><code class="py value">0</code><code class="py plain">,opmode)</code></div>
+<div class="line number73 index72 alt2"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,rotate_handle,</code><code class="py value">0</code><code class="py plain">,opmode)</code></div>
+<div class="line number74 index73 alt1"><code class="py spaces">         </code><code class="py plain">vrep.simxSetJointTargetVelocity(clientID,wrist_handle,</code><code class="py value">0</code><code class="py plain">,opmode)</code></div>
+<div class="line number75 index74 alt2"><code class="py spaces"> </code> </div>
+<div class="line number76 index75 alt1"><code class="py spaces"> </code> </div>
+<div class="line number77 index76 alt2"><code class="py keyword">else</code><code class="py plain">:</code></div>
+<div class="line number78 index77 alt1"><code class="py spaces">    </code><code class="py functions">print</code> <code class="py plain">(</code><code class="py string">'Failed connecting to remote API server'</code><code class="py plain">)</code></div>
+<div class="line number79 index78 alt2"><code class="py spaces">    </code><code class="py functions">print</code> <code class="py plain">(</code><code class="py string">'End'</code><code class="py plain">)</code></div>
+<div class="line number79 index78 alt2"><code class="py plain"></code></div>
+</div>
+</div>
+<p>此處的意思為呼叫這些程式，因為要執行接下來的程式碼時會用到</p>
+<p><img alt="" height="169" src="./../images/程式簡介1.png" width="500"/></p>
+<p>修改此處的id位址會影響你要操控的電腦位址</p>
+<p><img alt="" height="220" src="./../images/程式簡介2.png" width="500"/></p>
+<p>此處為定義程式指令和零件的關係和模式，後方的joint就是指coppeliasim的零件</p>
+<p><img alt="" height="101" src="./../images/程式簡介3.png" width="500"/></p>
+<p>這串的意思是，當你按下鍵盤的按鍵，對應的已被你定義關係的零件就會根據你下的指令作動</p>
+<p><img alt="" height="513" src="./../images/程式簡介4.png" width="500"/></p>
 <p>下載老師提供的壓縮檔:<a href="http://mde.tw/cd2021/content/task2.html">http://mde.tw/cd2021/content/task2.html</a></p>
 <p></p>
 <p></p><br />W11 << <a href='W11.html'>Previous</a> <a href='Team.html'>Next</a> >> Team</div>
